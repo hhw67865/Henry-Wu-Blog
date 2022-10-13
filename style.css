@@ -1,0 +1,126 @@
+body {
+    
+    background:#b6c199;
+    display: flex;
+    justify-content:center;
+    
+    
+    
+    
+}
+
+.box {
+    box-shadow: rgba(0, 0, 0, 0.403) 0px 10px 20px;
+    border-radius: 2rem;
+    border-radius: 2rem;
+    background-color: #fff;
+    max-width: 1300px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+p{
+    padding: 1rem 0rem;
+}
+
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    width: 80%;
+    max-height: 300px;
+    height: 100%;
+    background: #bbb;
+}
+.slideshow-container img {
+    max-height: 300px;
+    max-width: 1000px;
+    height: 100%;
+}
+
+.mySlides, .information {
+    display:none;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 0;
+   
+}
+
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+.information {
+    
+    text-align: center;
+    margin: auto;   
+    width: 90%;    
+}
+
+h1 {
+    text-align: center;
+    margin: auto;
+    font-size: 30px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
