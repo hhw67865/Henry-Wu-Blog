@@ -1,4 +1,5 @@
 let slideIndex = 1;
+
 showSlides(slideIndex);
 
 
@@ -36,12 +37,44 @@ function showSlides(n) {
 }
 
 function createNewPost(array) {
-    const count = array.length - 1;
-    const mySlidesFade = document.createElement("div");
-    mySlidesFade.className = "mySlides fade";
-    const numbertext = document.createElement("div");
-    numbertext.className = "numbertext";
-    const image = document.createElement("img");
-    
 
+    for (let i = 0; i < array.length; i++) {
+        
+        const slideshowContainer = document.querySelector(".slideshow-container");
+        const mySlidesFade = document.createElement("div");
+        mySlidesFade.className = "mySlides fade";
+        const numbertext = document.createElement("div");
+        numbertext.className = "numbertext";
+        numbertext.innerText = `${i+1} / ${array.length}`
+        const image = document.createElement("img");
+        image.src = array[i].picture;
+        image.alt = array[i].picture;
+        image.style.width = "100%";
+        image.style.height = "100%";
+        const text = document.createElement("div");
+        text.className = "text";
+        text.innerText = array[i].title;
+
+        slideshowContainer.append(mySlidesFade);
+        mySlidesFade.append(numbertext, image, text);
+
+        const dotHolder = document.querySelector(".dotHolder");
+        const dot = document.createElement("span");
+        dot.className = "dot";
+        dot.onclick=`currentSlide(${i+1})`
+
+        dotHolder.append(dot);
+
+        const box = document.querySelector(".box");
+        const informationFade = document.createElement("div");
+        informationFade.className = "information fade";
+        const h3 = document.createElement("h3");
+        h3.innerText = array[i].title;
+        const p = document.createElement("p");
+        p.innerText = array[i].post;
+
+        informationFade.append(h3, p);
+        box.append(informationFade);
+
+    }
 }
