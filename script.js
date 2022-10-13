@@ -34,3 +34,14 @@ function showSlides(n) {
   informations[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 }
+
+function createNewPost(array) {
+    const count = array.length - 1;
+    const mySlidesFade = document.createElement("div");
+    mySlidesFade.className = "mySlides fade";
+    const numbertext = document.createElement("div");
+    numbertext.className = "numbertext";
+    const image = document.createElement("img");
+    
+
+}
