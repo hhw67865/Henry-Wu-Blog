@@ -1,7 +1,7 @@
 const myBlogs = [
     {
-        title: "Command Line Interface(CLI)",
-        picture: "CLI.png",
+        title: "Coding Bootcamp Week 1: How I set myself up for success",
+        picture: "Bootcamp cartoon.png",
         post: "asd"
     },
     {
@@ -39,7 +39,7 @@ const myBlogs = [
             image.style.height = "100%";
             const text = document.createElement("div");
             text.className = "text";
-            text.innerText = array[i].title;
+            //text.innerText = array[i].title; Repetitive currently.
     
             slideshowContainer.insertBefore(mySlidesFade, prev);
             mySlidesFade.append(numbertext, image, text);
