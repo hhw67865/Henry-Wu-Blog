@@ -2,7 +2,7 @@ const myBlogs = [
     {
         title: "Coding Bootcamp Week 1: How I set myself up for success",
         picture: "Bootcamp cartoon.png",
-        post: "asd"
+        post: "Weird"
     },
     {
         title: "Java",
