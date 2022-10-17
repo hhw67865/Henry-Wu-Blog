@@ -2,17 +2,29 @@ const myBlogs = [
     {
         title: "Coding Bootcamp Week 1: How I set myself up for success",
         picture: "Bootcamp cartoon.png",
-        post: "Weird"
+        post: "Weird",
+        comments: [
+            "YESSS",
+            "HOHOHO"
+        ]
     },
     {
         title: "Java",
         picture: "Java.png",
-        post: "asd"
+        post: "asd",
+        comments: [
+            "NOOO",
+            "HOHaHO"
+        ]
     },
     {
         title: "HTML",
         picture: "HTML.png",
-        post: "asd"
+        post: "asd",
+        comments: [
+            "YESSS",
+            "mitocondria"
+        ]
     }
     ];
 
@@ -58,6 +70,20 @@ const myBlogs = [
     
             informationFade.append(h3, p);
             box.append(informationFade);
+
+            const commentHeader = document.createElement("h4");
+            commentHeader.innerText = "Comments";
+            commentHeader.style.textAlign = "left";
+            commentHeader.style.textDecoration = "underline";
+            
+            informationFade.append(commentHeader);
+            array[i].comments.forEach(element => {
+                const comment = document.createElement("p")
+                comment.className = "comments"
+                comment.style.textAlign = "left";
+                comment.innerText = element;
+                informationFade.append(comment);
+            });
     
         }
     
@@ -98,7 +124,22 @@ const myBlogs = [
         p.innerText = object.post;
 
         informationFade.append(h3, p);
-        box.append(informationFade);     
+        box.append(informationFade);
+        
+        //Comments
+        const commentHeader = document.createElement("h4");
+            commentHeader.innerText = "Comments";
+            commentHeader.style.textAlign = "left";
+            commentHeader.style.textDecoration = "underline";
+            
+            informationFade.append(commentHeader);
+            object.comments.forEach(element => {
+                const comment = document.createElement("p")
+                comment.className = "comments"
+                comment.style.textAlign = "left";
+                comment.innerText = element;
+                informationFade.append(comment);
+            });
     }
 
     function postOnServer (object) {
