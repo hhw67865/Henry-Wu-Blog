@@ -15,7 +15,7 @@
         <div class="mainbody">
             <div class="editorBox" style="display: none">
                 <h2>Blog Editor Mode</h2>
-                <form action="submit">
+                <form action="submit" id="blogPostForm">
                     <label for="action">Action:</label><br>
                     <select name="action" id="action">
                         <option value="POST">POST</option>
@@ -28,8 +28,8 @@
                     <label for="formPicture">Picture URL:</label><br>
                     <input type="text" name="formPicture" id="formPicture"><br>
                     <label for="formBlogPost">Blog Post:</label><br>
-                    <textarea name="formBlogPost" cols="50" rows="10"></textarea><br>
-                    <input type="submit" value="Submit"><br>
+                    <textarea name="formBlogPost" id="formBlogPost" cols="50" rows="10"></textarea><br>
+                    <input type="submit" id="submitBlogPost" value="Submit"><br>
                 </form>
             </div>
             <div class="box">

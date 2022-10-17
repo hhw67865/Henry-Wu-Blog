@@ -1,14 +1,21 @@
 {
-    "blogPosts": [
-        {
-            "id": "1",
-            "title": "title 1",
-            "picture": "Bootcamp cartoon.png",
-            "post": "weird",
-            "comments": [
-                "woahhh",
-                "yesss"
-            ]
-        }
-    ]
+  "blogPosts": [
+    {
+      "title": "title 1",
+      "picture": "Bootcamp cartoon.png",
+      "post": "weird",
+      "comments": [
+        "woahhh",
+        "yesss"
+      ],
+      "id": "1"
+    },
+    {
+      "title": "wtf is happening",
+      "picture": "DOM.png",
+      "post": "retesting because ID was weird.",
+      "comments": [],
+      "id": "LjfgDP_"
+    }
+  ]
 }

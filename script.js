@@ -36,8 +36,6 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
-
-
 //BLOG EDITOR MODE
 
 const blogEditorButton = document.querySelector(".blogEditorMode");
@@ -58,4 +56,36 @@ blogEditorButton.addEventListener("click", () => {
 
 
 //blog editor submit
+
+const blogPostForm = document.querySelector("#blogPostForm");
+blogPostForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const action = document.querySelector("select#action");
+  const blogTitle = document.querySelector("input#formTitle");
+  const blogPicture = document.querySelector("input#formPicture");
+  const blogPost = document.querySelector("textarea#formBlogPost");
+  if (action.value === "POST") {
+    const newBlogPost = {
+      title: blogTitle.value,
+      picture: blogPicture.value,
+      post: blogPost.value,
+      comments: []
+     };
+     createOnePost(newBlogPost);
+
+     fetch("http://localhost:3000/blogPosts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(newBlogPost)
+     })
+     .then(res => res.json())
+     .then(obj => console.log(obj))
+     .catch(error => console.log(error.message))
+  } 
+
+});
+
 
