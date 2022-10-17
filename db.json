@@ -1,21 +1,24 @@
 {
   "blogPosts": [
     {
-      "title": "title 1",
+      "title": "Coding Bootcamp Week 1",
       "picture": "Bootcamp cartoon.png",
       "post": "weird",
       "comments": [
         "woahhh",
         "yesss"
       ],
-      "id": "1"
+      "id": 1
     },
     {
-      "title": "wtf is happening",
-      "picture": "DOM.png",
-      "post": "retesting because ID was weird.",
-      "comments": [],
-      "id": "LjfgDP_"
-    }
+        "title": "Difference between innerText and textContent",
+        "picture": "Bootcamp cartoon.png",
+        "post": "weird",
+        "comments": [
+          "woahhh",
+          "NUUUH"
+        ],
+        "id": 2
+      }  
   ]
 }

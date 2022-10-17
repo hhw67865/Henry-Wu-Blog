@@ -3,7 +3,8 @@
     <head>
         <title>Henry's Personal Blog</title>
         <link rel="stylesheet" href="style.css">
-        <script defer src="script.js"></script>
+        
+        
     </head>
     <body>
         <div class="topnav">
@@ -46,7 +47,66 @@
                 </div>           
                             
             </div>
-        </div>    
-        <script src="data.js"></script>
+        </div>   
+         
+        <script>
+        fetch("http://localhost:3000/blogPosts")
+        .then(res => res.json())
+        .then(array => {
+            for (let i = 0; i < array.length; i++) {
+            
+            const prev = document.querySelector(".prev");
+            const slideshowContainer = document.querySelector(".slideshow-container");
+            const mySlidesFade = document.createElement("div");
+            mySlidesFade.className = "mySlides fade";
+            const image = document.createElement("img");
+            image.src = array[i].picture;
+            image.alt = array[i].picture;
+            image.style.width = "100%";
+            image.style.height = "100%";
+                
+            slideshowContainer.insertBefore(mySlidesFade, prev);
+            mySlidesFade.append(image);
+    
+            const dotHolder = document.querySelector(".dotHolder");
+            dotHolder.innerHTML += `
+            <span class="dot" onclick="currentSlide(${i+1})"></span>`
+        
+            const box = document.querySelector(".box");
+            const informationFade = document.createElement("div");
+            informationFade.className = "information fade";
+            const h3 = document.createElement("h3");
+            h3.innerText = array[i].title;
+            const p = document.createElement("p");
+            p.innerText = array[i].post;
+    
+            informationFade.append(h3, p);
+            box.append(informationFade);
+
+            const commentHeader = document.createElement("h4");
+            commentHeader.innerText = "Comments";
+            commentHeader.style.textAlign = "left";
+            commentHeader.style.textDecoration = "underline";
+            
+            informationFade.append(commentHeader);
+            array[i].comments.forEach(element => {
+                const comment = document.createElement("p")
+                comment.className = "comments"
+                comment.style.textAlign = "left";
+                comment.innerText = element;
+                informationFade.append(comment);
+            });
+        }
+    
+        })
+        .then(()=>{
+            const script1 = document.createElement("script");
+            const script2 = document.createElement("script");
+            script1.src = "script.js";
+            script2.src = "data.js";
+            document.body.append(script1, script2);
+            
+        });
+       </script>
     </body>
 </html>

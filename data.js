@@ -1,37 +1,5 @@
-const myBlogs = [
-    {
-        title: "Coding Bootcamp Week 1: How I set myself up for success",
-        picture: "Bootcamp cartoon.png",
-        post: "Weird",
-        comments: [
-            "YESSS",
-            "HOHOHO"
-        ]
-    },
-    {
-        title: "Java",
-        picture: "Java.png",
-        post: "asd",
-        comments: [
-            "NOOO",
-            "HOHaHO"
-        ]
-    },
-    {
-        title: "HTML",
-        picture: "HTML.png",
-        post: "asd",
-        comments: [
-            "YESSS",
-            "mitocondria"
-        ]
-    }
-    ];
 
-
-
-    createAllPost(myBlogs);
-
+    
 
     function createAllPost(array) {    
 
@@ -41,20 +9,14 @@ const myBlogs = [
             const slideshowContainer = document.querySelector(".slideshow-container");
             const mySlidesFade = document.createElement("div");
             mySlidesFade.className = "mySlides fade";
-            const numbertext = document.createElement("div");
-            numbertext.className = "numbertext";
-            numbertext.innerText = `${i+1} / ${array.length}`
             const image = document.createElement("img");
             image.src = array[i].picture;
             image.alt = array[i].picture;
             image.style.width = "100%";
             image.style.height = "100%";
-            const text = document.createElement("div");
-            text.className = "text";
-            //text.innerText = array[i].title; Repetitive currently.
-    
+                
             slideshowContainer.insertBefore(mySlidesFade, prev);
-            mySlidesFade.append(numbertext, image, text);
+            mySlidesFade.append(image);
     
             const dotHolder = document.querySelector(".dotHolder");
             dotHolder.innerHTML += `
@@ -95,21 +57,15 @@ const myBlogs = [
         const slideshowContainer = document.querySelector(".slideshow-container");
         const mySlidesFade = document.createElement("div");
         mySlidesFade.className = "mySlides fade";
-        const numbertext = document.createElement("div");
-        numbertext.className = "numbertext";
         let slides = document.getElementsByClassName("mySlides");
-        numbertext.innerText = `${slides.length} / ${slides.length}`
         const image = document.createElement("img");
         image.src = object.picture;
         image.alt = object.picture;
         image.style.width = "100%";
         image.style.height = "100%";
-        const text = document.createElement("div");
-        text.className = "text";
-        //text.innerText = object.title; Repetitive currently.
-
+        
         slideshowContainer.insertBefore(mySlidesFade, prev);
-        mySlidesFade.append(numbertext, image, text);
+        mySlidesFade.append(image);
 
         const dotHolder = document.querySelector(".dotHolder");
         dotHolder.innerHTML += `
@@ -156,4 +112,3 @@ const myBlogs = [
         .catch(error => console.log(error.message))
     }
 
-    
