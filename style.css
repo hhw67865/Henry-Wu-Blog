@@ -11,6 +11,7 @@ body {
 .topnav {
     background-color: white;
     overflow: hidden;
+    display: flex;
    
 }
 
@@ -25,9 +26,11 @@ body {
 }
 
 .topnav .blogEditorMode {
-    float: right;
+    
     font-size: 17px;
-    padding: 14px 16px;
+    margin: 10px;
+    margin-left: auto;    
+    
 }
 
 .topnav a:hover {
