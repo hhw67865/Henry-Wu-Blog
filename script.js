@@ -36,3 +36,21 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
+
+
+//BLOG EDITOR MODE
+
+const blogEditorButton = document.querySelector(".blogEditorMode");
+blogEditorButton.addEventListener("click", () => {
+  const box = document.querySelector(".box");
+  const editorBox = document.querySelector(".editorBox");
+  if (box.style.display === "block") {
+    box.style.display = "none";
+    editorBox.style.display = "block";
+
+  }
+  else {
+    box.style.display = "block";
+    editorBox.style.display = "none";
+  }
+})
