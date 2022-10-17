@@ -54,3 +54,8 @@ blogEditorButton.addEventListener("click", () => {
     editorBox.style.display = "none";
   }
 })
+
+
+
+//blog editor submit
+

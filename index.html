@@ -14,8 +14,22 @@
         </div>
         <div class="mainbody">
             <div class="editorBox" style="display: none">
+                <h2>Blog Editor Mode</h2>
                 <form action="submit">
-                    <input type="text" name="test form" id="test form">
+                    <label for="action">Action:</label><br>
+                    <select name="action" id="action">
+                        <option value="POST">POST</option>
+                        <option value="PATCH">PATCH (update)</option>
+                        <option value="PUT">PUT (replace)</option>
+                        <option value="DELETE">DELETE</option>
+                    </select><br>
+                    <label for="formTitle">Title:</label><br>
+                    <input type="text" name="formTitle" id="formTitle"><br>
+                    <label for="formPicture">Picture URL:</label><br>
+                    <input type="text" name="formPicture" id="formPicture"><br>
+                    <label for="formBlogPost">Blog Post:</label><br>
+                    <textarea name="formBlogPost" cols="50" rows="10"></textarea><br>
+                    <input type="submit" value="Submit"><br>
                 </form>
             </div>
             <div class="box">
