@@ -1,0 +1,14 @@
+{
+    "blogPosts": [
+        {
+            "id": "1",
+            "title": "title 1",
+            "picture": "Bootcamp cartoon.png",
+            "post": "weird",
+            "comments": [
+                "woahhh",
+                "yesss"
+            ]
+        }
+    ]
+}

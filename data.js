@@ -101,4 +101,16 @@ const myBlogs = [
         box.append(informationFade);     
     }
 
-    
+    function postOnServer (object) {
+        fetch("http://localhost:3000/blogPosts", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"        
+            },
+            body: JSON.stringify(object)
+        })
+        .then(res => res.json())
+        .then(obj => console.log(obj))
+        .catch(error => console.log(error.message))
+    }
