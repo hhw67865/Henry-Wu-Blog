@@ -58,7 +58,24 @@ blogEditorButton.addEventListener("click", () => {
 
 //GRAB INFORMATION FOR PUT OR DELETE
 
-
+const idForm = document.querySelector("form#idForm");
+idForm.addEventListener("submit", (e)=>{
+  e.preventDefault();
+  const idValue = e.target.ID.value;
+  const blogTitle = document.querySelector("input#formTitle");
+  const blogPicture = document.querySelector("input#formPicture");
+  const blogPost = document.querySelector("textarea#formBlogPost");
+  fetch(`http://localhost:3000/blogPosts/${idValue}`)
+  .then(res => res.json())
+  .then(blogGrabbed => {
+    blogPostForm.formTitle.value = blogGrabbed.title;
+    blogPostForm.formPicture.value = blogGrabbed.picture;
+    blogPostForm.formBlogPost.value = blogGrabbed.post;
+  
+  });
+  
+  
+});
 
 //blog editor submit
 
@@ -69,7 +86,6 @@ blogPostForm.addEventListener("submit", (e) => {
   const blogTitle = document.querySelector("input#formTitle");
   const blogPicture = document.querySelector("input#formPicture");
   const blogPost = document.querySelector("textarea#formBlogPost");
-  const IDText = document.querySelector("input#ID");
 
 //POST FUNCTION
 
@@ -80,7 +96,7 @@ blogPostForm.addEventListener("submit", (e) => {
       post: blogPost.value,
       comments: []
      };
-     createOnePost(newBlogPost);
+     
 
      fetch("http://localhost:3000/blogPosts", {
       method: "POST",
@@ -91,14 +107,47 @@ blogPostForm.addEventListener("submit", (e) => {
       body: JSON.stringify(newBlogPost)
      })
      .then(res => res.json())
-     .then(obj => console.log(obj))
-     .catch(error => console.log(error.message))
+     .then(obj => createOnePost(obj))
+     .catch(error => console.log(error.message));
+     blogPostForm.reset();
   } 
 
   //PATCH FUNCTION
 
-  if (action.value === "PUT") {
+  if (action.value === "PATCH") {
+    const newBlogPost = {
+      title: blogTitle.value,
+      picture: blogPicture.value,
+      post: blogPost.value
+     };
 
+     fetch(`http://localhost:3000/blogPosts/${idForm.ID.value}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(newBlogPost)
+     })
+     .then(res=>res.json())
+     .then(obj => console.log(obj))
+     .catch(error => console.log(error.message));
+
+
+
+     blogPostForm.reset();
+  }
+
+  //DELETE FUNCTION
+
+  if (action.value === "DELETE") {
+    fetch(`http://localhost:3000/blogPosts/${idForm.ID.value}`, {
+      method: "DELETE"      
+     })
+     .then(res=>res.json())
+     .then(obj => console.log(obj))
+     .catch(error => console.log(error.message));
+     blogPostForm.reset();
   }
 
 });
