@@ -20,10 +20,13 @@
                     <label for="action">Action:</label><br>
                     <select name="action" id="action">
                         <option value="POST">POST</option>
-                        <option value="PATCH">PATCH (update)</option>
-                        <option value="PUT">PUT (replace)</option>
+                        <option value="PUT">PUT</option>
                         <option value="DELETE">DELETE</option>
-                    </select><br>
+                    </select><br>                    
+                    <label for="ID" id="ID">ID:</label><br>
+                    <input type="text" name="ID" id="ID" style="padding: 0px; width: 20%; margin: 0;">
+                    <input type="submit" id="grabID" value="Grab ID" style="margin: 0; padding: 0">
+                    <p style="color: red;">*Only use ID for PUT or DELETE</p>                    
                     <label for="formTitle">Title:</label><br>
                     <input type="text" name="formTitle" id="formTitle"><br>
                     <label for="formPicture">Picture URL:</label><br>

@@ -53,7 +53,10 @@ blogEditorButton.addEventListener("click", () => {
     box.style.display = "block";
     editorBox.style.display = "none";
   }
-})
+});
+
+
+//GRAB INFORMATION FOR PUT OR DELETE
 
 
 
@@ -66,6 +69,10 @@ blogPostForm.addEventListener("submit", (e) => {
   const blogTitle = document.querySelector("input#formTitle");
   const blogPicture = document.querySelector("input#formPicture");
   const blogPost = document.querySelector("textarea#formBlogPost");
+  const IDText = document.querySelector("input#ID");
+
+//POST FUNCTION
+
   if (action.value === "POST") {
     const newBlogPost = {
       title: blogTitle.value,
@@ -87,6 +94,12 @@ blogPostForm.addEventListener("submit", (e) => {
      .then(obj => console.log(obj))
      .catch(error => console.log(error.message))
   } 
+
+  //PATCH FUNCTION
+
+  if (action.value === "PUT") {
+
+  }
 
 });
 
