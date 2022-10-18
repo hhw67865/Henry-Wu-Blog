@@ -130,8 +130,21 @@ blogPostForm.addEventListener("submit", (e) => {
       body: JSON.stringify(newBlogPost)
      })
      .then(res=>res.json())
-     .then(obj => console.log(obj))
+     .then(obj => {
+      const allSlides = document.querySelectorAll(".mySlides");
+      const image = allSlides[idForm.ID.value-1].firstChild;
+      image.src = newBlogPost.picture;
+
+      const allInformation = document.querySelectorAll(".information");
+      const informationTitle = allInformation[idForm.ID.value-1].querySelector("h3");
+      const informationPost = allInformation[idForm.ID.value-1].querySelector("p");
+      informationTitle.innerText = newBlogPost.title;
+      informationPost.innerText = newBlogPost.post;
+
+     })
      .catch(error => console.log(error.message));
+
+
 
 
 
@@ -146,6 +159,19 @@ blogPostForm.addEventListener("submit", (e) => {
      })
      .then(res=>res.json())
      .then(obj => console.log(obj))
+     .then(()=>{
+        const allSlides = document.querySelectorAll(".mySlides");
+        const selectedSlide = allSlides[idForm.ID.value-1];
+        selectedSlide.remove();
+        const allDots = document.querySelectorAll(".dot");
+        const selectedDot = allDots[idForm.ID.value-1];
+        selectedDot.remove();
+        const allInformation = document.querySelectorAll(".information");
+        const selectedInformation = allInformation[idForm.ID.value-1];
+        selectedInformation.remove();
+
+
+     })
      .catch(error => console.log(error.message));
      blogPostForm.reset();
   }
