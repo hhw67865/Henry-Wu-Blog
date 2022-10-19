@@ -19,6 +19,20 @@
         "NUUUH"
       ],
       "id": 2
+    },
+    {
+      "title": "Difference between innerText and textContent",
+      "picture": "Bootcamp cartoon.png",
+      "post": "weird",
+      "comments": [],
+      "id": 3
+    },
+    {
+      "title": "asd",
+      "picture": "CLI.png",
+      "post": "asdasdasd",
+      "comments": [],
+      "id": 4
     }
   ]
 }

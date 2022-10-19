@@ -97,18 +97,58 @@
             commentHeader.style.textDecoration = "underline";
             
             informationFade.append(commentHeader);
+            
+            const commentForm = document.createElement("form");
+            commentForm.className = "commentForm";
+            
+            const commentInput = document.createElement("textarea");
+            commentInput.name = "commentPost";
+            commentInput.id = "commentPost";
+            commentInput.cols = "100";
+            commentInput.rows = "3";
+            
+            const commentSubmit = document.createElement("input");
+            commentSubmit.type = "submit";
+            commentSubmit.id = "submitComment";
+            commentSubmit.value = "Post";
+            
+            commentForm.append(commentInput, commentSubmit);
+            informationFade.append(commentForm);
+
+            commentForm.addEventListener("submit", (e)=>{
+                e.preventDefault();
+                const comment = document.createElement("p");
+                comment.className = `comments`;
+                comment.style.textAlign = "left";
+                comment.innerText = commentInput.value;
+                informationFade.append(comment);
+
+                
+                fetch(`http://localhost:3000/blogPosts/${i+1}`)
+                .then(res => res.json())
+                .then(obj => {
+                    obj.comments.push(commentInput.value);
+                    fetch(`http://localhost:3000/blogPosts/${i+1}`, {
+                        method: "PATCH",
+                        headers: {
+                            "Content-Type": "application.json",
+                            "Accept": "application.json"
+                        },
+                        body: JSON.stringify(obj)
+                    });
+                    
+                })
+            })
+
             array[i].comments.forEach(element => {
                 const comment = document.createElement("p");
                 comment.className = `comments`;
                 comment.style.textAlign = "left";
                 comment.innerText = element;
-                informationFade.append(comment);
-
-
-            //giving my newly created slide a classnumber 
-
-            
+                informationFade.append(comment);         
+           
             });
+            
         }
     
         })

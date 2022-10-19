@@ -68,12 +68,11 @@ idForm.addEventListener("submit", (e)=>{
   fetch(`http://localhost:3000/blogPosts/${idValue}`)
   .then(res => res.json())
   .then(blogGrabbed => {
-    blogPostForm.formTitle.value = blogGrabbed.title;
-    blogPostForm.formPicture.value = blogGrabbed.picture;
+    blogTitle.value = blogGrabbed.title;
+    blogPicture.value = blogGrabbed.picture;
     blogPostForm.formBlogPost.value = blogGrabbed.post;
   
   });
-  
   
 });
 
